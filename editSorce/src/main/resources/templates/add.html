@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+
+<form th:action="@{/add}" method="post">
+    <input type="hidden" name="_method" value="put" th:if="${people!=null}"/>
+    <input type="hidden" name="id" th:if="${people!=null}" th:value="${people.id}">
+    <div class="form-group">
+        <label>姓名</label>
+        <input name="name" type="text" class="form-control" placeholder="IT1995"
+               th:value="${people!=null}?${people.name}">
+    </div>
+    <div class="form-group">
+        <label>邮箱</label>
+        <input name="email" type="email" class="form-control" placeholder="570176391@qq.com"
+               th:value="${people!=null}?${people.email}">
+    </div>
+    <div class="form-group">
+        <label>性别</label><br/>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" value="1"
+                   th:checked="${people!=null}?${people.gender==1}">
+            <label class="form-check-label">男</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" value="0"
+                   th:checked="${people!=null}?${people.gender==0}">
+            <label class="form-check-label">女</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>生日</label>
+        <input name="birth" type="text" class="form-control" placeholder="2019/3/12"
+               th:value="${people!=null}?${#dates.format(people.birth, 'yyyy-MM-dd HH:mm')}">
+    </div>
+    <button type="submit" class="btn btn-primary" th:text="${people!=null}?'修改':'添加'">添加</button>
+</form>
+
+</body>
+</html>
