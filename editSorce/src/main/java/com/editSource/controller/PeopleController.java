@@ -59,7 +59,7 @@ public class PeopleController {
 
     @RequestMapping("/kaka")
     @ResponseBody
-    public String kaka(@RequestBody Map<String,String> map){
+    public Map<String, String> kaka(@RequestBody Map<String,String> map){
 
         System.out.println(map.toString());
 
@@ -67,7 +67,7 @@ public class PeopleController {
         map1.put("aaa","bbbbb");
         map1.put("bbb","cccc");
 
-        return "aaaaaaaaaa";
+        return map1;
     }
 
 }
