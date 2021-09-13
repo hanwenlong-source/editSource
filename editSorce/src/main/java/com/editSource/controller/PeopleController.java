@@ -5,12 +5,10 @@ import com.editSource.entities.People;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @Controller
 public class PeopleController {
@@ -57,4 +55,14 @@ public class PeopleController {
         peopleData.save(people);
         return "redirect:/";
     }
+
+    @RequestMapping("/kaka")
+    @ResponseBody
+    public String kaka(@RequestBody Map<String,String> map){
+
+        System.out.println(map.toString());
+
+        return "aaaaaaaaaa";
+    }
+
 }

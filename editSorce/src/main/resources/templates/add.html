@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+<!--    <script type="text/javascript" src="jquery.js"></script>-->
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            alert("test2")
+        })
+
+        function test() {
+
+            $.ajax({
+                type: "POST",
+                url: "127.0.0.1:8080/kaka",
+                async:true,
+                data: {
+                  username: aa,
+                  password: bb
+                },
+                dataType: "JSON",
+                success: function(result) {}
+            })
+
+        }
+    </script>
 </head>
 <body>
+
+
 
 <form th:action="@{/add}" method="post">
     <input type="hidden" name="_method" value="put" th:if="${people!=null}"/>
@@ -38,7 +63,8 @@
         <input name="birth" type="text" class="form-control" placeholder="2019/3/12"
                th:value="${people!=null}?${#dates.format(people.birth, 'yyyy-MM-dd HH:mm')}">
     </div>
-    <button type="submit" class="btn btn-primary" th:text="${people!=null}?'修改':'添加'">添加</button>
+    <button οnclick="test()">dddddddddddddd</button>
+    <button id="button222" type="submit" class="btn btn-primary" th:text="${people!=null}?'修改':'添加'">添加</button>
 </form>
 
 </body>

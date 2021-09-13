@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>呵呵</title>
     <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+<!--    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>-->
+
 </head>
 <body>
 
@@ -33,7 +35,37 @@
         </tbody>
     </table>
     <a class="btn btn-sm btn-success" href="#" th:href="@{/add}">添加人员</a>
+    <button οnclick="test22()">发送4</button>
+    <button οnclick="test33()">发送5</button>
 </div>
 
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+        $(function() {
+            alert("test3")
+        })
+
+        function test33() {
+            alert("aaabbb")
+        }
+
+        function test22() {
+            alert("aaa")
+            $.ajax({
+                type: "POST",
+                url: "127.0.0.1:8080/kaka",
+                async:true,
+                data: {
+                  username: aa,
+                  password: bb
+                },
+                dataType: "JSON",
+                success: function(result) {}
+            })
+
+        }
+</script>
+
 </body>
+
 </html>
