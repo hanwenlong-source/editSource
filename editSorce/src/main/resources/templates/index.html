@@ -35,35 +35,49 @@
         </tbody>
     </table>
     <a class="btn btn-sm btn-success" href="#" th:href="@{/add}">添加人员</a>
-    <button οnclick="test22()">发送4</button>
-    <button οnclick="test33()">发送5</button>
+    <button id="a1" type="button">发送4</button>
+    <button id="b1" type="button">发送5</button>
 </div>
 
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
         $(function() {
-            alert("test3")
+
         })
 
-        function test33() {
-            alert("aaabbb")
-        }
+        $("#b1").click(function() {
 
-        function test22() {
+            alert("aaabbb")
+        })
+
+        $("#a1").click(function() {
+
+<!--            var data = {-->
+<!--                'id' : $('input[name="id"]').val(),-->
+<!--                'powerFreq' : $('input[name="powerFreq"]').val(),-->
+<!--                'ratedVol' : $('input[name="ratedVol"]').val()-->
+<!--            };-->
+
+            var data = {
+                'id' : 'aa',
+                'powerFreq' : 'bb',
+                'ratedVol' : 'cc'
+            };
+
             alert("aaa")
             $.ajax({
                 type: "POST",
-                url: "127.0.0.1:8080/kaka",
+                url: "/kaka",
+                contentType: 'application/json; charset=utf-8',
                 async:true,
-                data: {
-                  username: aa,
-                  password: bb
-                },
+<!--                data: {'name':'jenny'},-->
+                data: JSON.stringify(data),
                 dataType: "JSON",
-                success: function(result) {}
+                success: function(result) {
+                    alert(result.aaa);
+                }
             })
-
-        }
+        })
 </script>
 
 </body>

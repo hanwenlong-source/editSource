@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -61,6 +62,10 @@ public class PeopleController {
     public String kaka(@RequestBody Map<String,String> map){
 
         System.out.println(map.toString());
+
+        Map<String,String> map1 = new HashMap<>();
+        map1.put("aaa","bbbbb");
+        map1.put("bbb","cccc");
 
         return "aaaaaaaaaa";
     }
