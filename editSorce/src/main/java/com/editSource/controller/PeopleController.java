@@ -65,8 +65,6 @@ public class PeopleController {
 
         Map<String,String> map1 = new HashMap<>();
         map1.put("aaa","bbbbb");
-        map1.put("bbb","cccc");
-
         return map1;
     }
 
